@@ -1,0 +1,37 @@
+# action.yml
+name: "UI5 Deploy"
+description: "Deploy UI5 application"
+branding:
+  icon: 'upload-cloud'  
+  color: 'green'
+inputs:
+  api:
+    description: "API Endpoint"
+    required: true
+  org:
+    description: "Org Name"
+    required: true
+  user:
+    description: "Credential - User ID"
+    required: true
+  password:
+    description: "Credential - Password"
+    required: true
+  space:
+    description: "Space Name"
+    required: true
+    default: "eu2.hana.ondemand.com"
+  service-manifest:
+    description: "Services manifest yml file"
+    required: false
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.api }}
+    - ${{ inputs.org }}
+    - ${{ inputs.user }}
+    - ${{ inputs.password }}
+    - ${{ inputs.space }}
+    - ${{ inputs.service-manifest }}
