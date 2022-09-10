@@ -1,4 +1,3 @@
-# base image
 FROM buildpack-deps:buster-curl
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -19,7 +18,7 @@ ARG CSPUSH_PLUGIN_URL=https://github.com/dawu415/CF-CLI-Create-Service-Push-Plug
 RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org && \
     cf install-plugin -r CF-Community blue-green-deploy -f && \
     cf install-plugin ${MTA_PLUGIN_URL} -f && \
-	cf install-plugin ${CSPUSH_PLUGIN_URL} -f && \
+    cf install-plugin ${CSPUSH_PLUGIN_URL} -f && \
     cf install-plugin -r CF-Community "html5-plugin" -f && \
     cf plugins
 
