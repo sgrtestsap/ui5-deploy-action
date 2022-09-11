@@ -2,9 +2,8 @@ FROM buildpack-deps:buster-curl
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends procps ca-certificates nodejs && \
+    apt-get install -y --no-install-recommends procps ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl --location --silent "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=v8&source=github" | tar -zx -C /usr/local/bin && \

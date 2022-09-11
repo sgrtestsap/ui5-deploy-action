@@ -21,6 +21,9 @@ inputs:
     description: "Space Name"
     required: true
     default: "eu2.hana.ondemand.com"
+  mtar-archive:
+    description: "MTA archive output"
+    required: true
   service-manifest:
     description: "Services manifest yml file"
     required: false
@@ -34,4 +37,5 @@ runs:
     - ${{ inputs.user }}
     - ${{ inputs.password }}
     - ${{ inputs.space }}
+    - ${{ inputs.mtar-archive }}
     - ${{ inputs.service-manifest }}
